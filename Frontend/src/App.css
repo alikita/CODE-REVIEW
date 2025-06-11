@@ -1,0 +1,200 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  font-family: 'Fira Code', monospace;
+  background: var(--background);
+  color: var(--text);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Theme Variables */
+[data-theme='dark'] {
+  --text: #ffffff;
+  --background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1a2980);
+  --code-bg: rgba(20, 20, 20, 0.95);
+  --panel-bg: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme='light'] {
+  --text: #050404;
+  --background: linear-gradient(to right, #f7f7f7, #ffffff);
+  --code-bg: rgba(245, 245, 245, 1);
+  --panel-bg: rgba(255, 255, 255, 0.85);
+}
+
+/* Main layout */
+main, .fancy-background {
+  height: 80vh;
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .fancy-background {
+    flex-direction: column;
+  }
+
+  .left, .right {
+    max-height: 50vh;
+    border-radius: 1rem;
+  }
+
+  .review-button {
+    border-radius: 0 0 1rem 1rem;
+  }
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+.left:hover {
+  transform: scale(1.01);
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out;
+}
+.right:hover {
+  transform: scale(1.01);
+}
+
+.glass {
+  background: var(--panel-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.code-area {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.scrollable-code {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--code-bg);
+  border-radius: 1rem 1rem 0 0;
+  padding: 1rem;
+}
+
+.code pre, .code pre code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: hidden;
+}
+
+.review-button {
+  background: linear-gradient(135deg, #00feba, #5b548a);
+  padding: 0.75rem 2rem;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 0 10px rgba(91, 84, 138, 0.8);
+  transition: all 0.3s ease;
+}
+.review-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(91, 84, 138, 1);
+}
+
+.animated-header {
+  text-align: center;
+  font-size: 2.8rem;
+  margin: 1.5rem 0;
+  background: linear-gradient(to right, #00feba, #5b548a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+.review-controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+.icon {
+  cursor: pointer;
+  color: var(--text);
+}
+.icon:hover {
+  color: #00feba;
+}
+
+.markdown-body pre {
+  background-color: var(--code-bg);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+.markdown-body code {
+  font-family: "Fira Code", monospace;
+  font-size: 0.95rem;
+}
+.markdown-body ul {
+  padding-left: 1.2rem;
+}
+.markdown-body li {
+  margin-bottom: 0.4rem;
+}
+.markdown-body strong {
+  color: #ffe082;
+}
+.markdown-body em {
+  color: #81ecec;
+  font-style: normal;
+}
+
+.glow-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,0.2);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
