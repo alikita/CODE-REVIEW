@@ -20,7 +20,7 @@
     "react-icons": "^5.5.0",
     "react-markdown": "^10.1.0",
     "react-simple-code-editor": "^0.14.1",
-    "react-syntax-highlighter": "^15.6.1",
+    "react-syntax-highlighter": "^5.8.0",
     "rehype-highlight": "^7.0.2"
   },
   "devDependencies": {
